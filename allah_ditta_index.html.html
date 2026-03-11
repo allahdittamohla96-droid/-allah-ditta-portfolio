@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Allah Ditta Mohla — Performance Marketing Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B2A;
+    --navy-mid: #162436;
+    --navy-light: #1E3250;
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --cream: #F5F0E8;
+    --cream-dark: #EDE6D8;
+    --white: #FDFCFA;
+    --text-muted: #8A9BB0;
+    --text-body: #3D4F63;
+    --accent-teal: #2A9D8F;
+    --accent-red: #E76F51;
+    --card-bg: #FFFFFF;
+    --border: #E8E2D9;
+    --shadow: 0 4px 32px rgba(13,27,42,0.10);
+    --shadow-hover: 0 12px 48px rgba(13,27,42,0.18);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--cream-dark); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(42,157,143,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 80px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--gold-light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    width: fit-content;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50% { opacity:0.5; transform:scale(1.4); }
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 5vw, 68px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 6px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero-name span { color: var(--gold); }
+
+  .hero-title {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    margin-bottom: 32px;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    color: rgba(245,240,232,0.7);
+    line-height: 1.8;
+    max-width: 440px;
+    margin-bottom: 48px;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .hero-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .contact-item .icon {
+    width: 32px; height: 32px;
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold);
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .contact-item a { color: inherit; text-decoration: none; }
+  .contact-item a:hover { color: var(--gold-light); }
+
+  .relocation-badge {
+    margin-top: 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(42,157,143,0.1);
+    border: 1px solid rgba(42,157,143,0.3);
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 13px;
+    color: #4ECDC4;
+    animation: fadeUp 0.6s 0.5s ease both;
+  }
+
+  /* HERO RIGHT — stat cards */
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 80px 80px 40px;
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .stat-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 28px 32px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    animation: fadeUp 0.6s ease both;
+  }
+  .stat-card:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(201,168,76,0.3);
+    transform: translateY(-3px);
+  }
+  .stat-card:nth-child(1) { animation-delay: 0.2s; }
+  .stat-card:nth-child(2) { animation-delay: 0.3s; }
+  .stat-card:nth-child(3) { animation-delay: 0.4s; }
+  .stat-card:nth-child(4) { animation-delay: 0.5s; }
+
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-sub { font-size: 13px; color: rgba(245,240,232,0.55); }
+
+  /* ── SECTION STYLES ── */
+  section { padding: 100px 0; }
+
+  .container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+    color: var(--text-body);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 64px;
+  }
+
+  /* ── METRICS SECTION ── */
+  .metrics-section { background: var(--white); }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 64px;
+  }
+
+  .metric-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    padding: 36px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s ease;
+  }
+  .metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .metric-card.gold::before { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+  .metric-card.teal::before { background: linear-gradient(90deg, var(--accent-teal), #4ECDC4); }
+  .metric-card.red::before { background: linear-gradient(90deg, var(--accent-red), #F4A261); }
+  .metric-card.navy::before { background: linear-gradient(90deg, var(--navy), var(--navy-light)); }
+
+  .metric-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: transparent;
+  }
+
+  .metric-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .metric-card.gold .metric-icon { background: rgba(201,168,76,0.1); }
+  .metric-card.teal .metric-icon { background: rgba(42,157,143,0.1); }
+  .metric-card.red .metric-icon { background: rgba(231,111,81,0.1); }
+  .metric-card.navy .metric-icon { background: rgba(13,27,42,0.07); }
+
+  .metric-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .metric-card.gold .metric-num { color: var(--gold); }
+  .metric-card.teal .metric-num { color: var(--accent-teal); }
+  .metric-card.red .metric-num { color: var(--accent-red); }
+  .metric-card.navy .metric-num { color: var(--navy); }
+
+  .metric-title { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+  .metric-desc { font-size: 13px; color: var(--text-body); line-height: 1.5; }
+
+  /* ── SKILLS DASHBOARD ── */
+  .skills-section { background: var(--navy); color: var(--white); }
+  .skills-section .section-title { color: var(--white); }
+  .skills-section .section-subtitle { color: var(--text-muted); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .skill-box {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 36px;
+    transition: all 0.3s ease;
+  }
+  .skill-box:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(201,168,76,0.25);
+  }
+
+  .skill-box-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .skill-box-icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .skill-box-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--white); }
+  .skill-box-sub { font-size: 12px; color: var(--text-muted); }
+
+  .skill-bar-item { margin-bottom: 18px; }
+  .skill-bar-top { display: flex; justify-content: space-between; margin-bottom: 8px; }
+  .skill-name { font-size: 13px; font-weight: 500; color: rgba(245,240,232,0.85); }
+  .skill-pct { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--gold); }
+  .skill-track {
+    height: 6px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+  .skill-fill {
+    height: 100%;
+    border-radius: 100px;
+    position: relative;
+    animation: fillBar 1.4s cubic-bezier(0.4,0,0.2,1) both;
+  }
+  @keyframes fillBar { from { width: 0 !important; } }
+  .skill-fill.gold { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+  .skill-fill.teal { background: linear-gradient(90deg, var(--accent-teal), #4ECDC4); }
+
+  /* ── PLATFORMS ── */
+  .platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .platform-chip {
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: rgba(245,240,232,0.75);
+    transition: all 0.25s;
+  }
+  .platform-chip:hover { border-color: var(--gold); color: var(--gold-light); background: rgba(201,168,76,0.06); }
+  .platform-chip span { font-size: 18px; }
+
+  /* ── EXPERIENCE ── */
+  .experience-section { background: var(--cream); }
+
+  .experience-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 24px;
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .experience-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(180deg, var(--gold), var(--gold-light));
+  }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .exp-company { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .exp-role { font-size: 15px; color: var(--text-body); font-weight: 500; }
+  .exp-badge {
+    background: var(--navy);
+    color: var(--gold);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    padding: 8px 16px;
+    border-radius: 100px;
+    letter-spacing: 0.06em;
+  }
+
+  .exp-achievements {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .achievement-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--cream);
+    border-radius: 14px;
+    padding: 20px;
+    transition: all 0.25s;
+  }
+  .achievement-item:hover { background: var(--cream-dark); }
+  .achievement-bullet {
+    width: 28px; height: 28px;
+    background: var(--navy);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold);
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .achievement-text { font-size: 14px; color: var(--text-body); line-height: 1.6; }
+  .achievement-text strong { color: var(--navy); font-weight: 600; }
+
+  /* ── CERTIFICATIONS ── */
+  .certs-section { background: var(--white); }
+  .certs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+
+  .cert-card {
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    padding: 36px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .cert-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 60%, rgba(201,168,76,0.04));
+  }
+  .cert-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--gold); }
+  .cert-logo {
+    width: 64px; height: 64px;
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+  .cert-logo.meta { background: linear-gradient(135deg, #0866FF, #1877F2); }
+  .cert-logo.google { background: linear-gradient(135deg, #4285F4, #34A853); }
+  .cert-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .cert-detail { font-size: 13px; color: var(--text-body); margin-bottom: 12px; }
+  .cert-status {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(42,157,143,0.1);
+    color: var(--accent-teal);
+    border: 1px solid rgba(42,157,143,0.2);
+    border-radius: 100px;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.06em;
+  }
+  .cert-status::before { content:''; width:6px;height:6px;background:var(--accent-teal);border-radius:50%; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    padding: 64px 0;
+    text-align: center;
+  }
+  footer .footer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  footer .footer-tagline { font-size: 14px; color: var(--text-muted); margin-bottom: 32px; }
+  footer .footer-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+  footer .footer-link {
+    display: flex; align-items: center; gap: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 13px;
+    padding: 10px 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 100px;
+    transition: all 0.25s;
+  }
+  footer .footer-link:hover { color: var(--gold); border-color: var(--gold); }
+  footer .copy { margin-top: 48px; font-size: 12px; color: rgba(138,155,176,0.5); font-family: 'DM Mono', monospace; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* DIVIDER */
+  .gold-divider {
+    width: 60px; height: 3px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    border-radius: 2px;
+    margin-bottom: 48px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 60px 32px; }
+    .hero-right { padding: 0 32px 60px; flex-direction: row; flex-wrap: wrap; }
+    .stat-card { flex: 1 1 calc(50% - 10px); }
+    .metrics-grid { grid-template-columns: 1fr 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .exp-achievements { grid-template-columns: 1fr; }
+    .certs-grid { grid-template-columns: 1fr; }
+    .platforms-grid { grid-template-columns: 1fr 1fr; }
+    .container { padding: 0 24px; }
+    section { padding: 64px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Performance Marketing Specialist</div>
+    <h1 class="hero-name">Allah Ditta<br><span>Mohla</span></h1>
+    <p class="hero-title">Meta & Google Certified · Full-Funnel Paid Media · 4+ Years</p>
+    <p class="hero-desc">Driving measurable growth for e-commerce and lead generation businesses through data-driven paid media on Meta and Google — from strategy and creative to execution and scaling.</p>
+
+    <div class="hero-contacts">
+      <div class="contact-item">
+        <div class="icon">📞</div>
+        <a href="tel:+923303835509">+92 330 383 5509</a>
+      </div>
+      <div class="contact-item">
+        <div class="icon">✉️</div>
+        <a href="mailto:allahdittamohla96@gmail.com">allahdittamohla96@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <div class="icon">🔗</div>
+        <a href="https://www.linkedin.com/in/allah-dittamohla-a0a9943ab" target="_blank">LinkedIn Profile</a>
+      </div>
+    </div>
+
+    <div class="relocation-badge">
+      ✈️ &nbsp; Available for immediate relocation — UAE · KSA · Qatar · No notice period
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="stat-card">
+      <div class="stat-label">Return on Ad Spend</div>
+      <div class="stat-value">4.5×</div>
+      <div class="stat-sub">Sustained ROAS on Meta & Google PMax</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Cost-Per-Lead Reduction</div>
+      <div class="stat-value">−40%</div>
+      <div class="stat-sub">Via A/B testing & landing page optimization</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">CAC Reduction</div>
+      <div class="stat-value">−35%</div>
+      <div class="stat-sub">Across multiple accounts through creative iteration</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Ad Spend Scaled</div>
+      <div class="stat-value">5×</div>
+      <div class="stat-sub">From PKR 200K → 1M/month while sustaining ROAS</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ METRICS DASHBOARD ══════════════════ -->
+<section class="metrics-section">
+  <div class="container">
+    <div class="section-label fade-in">Impact Dashboard</div>
+    <h2 class="section-title fade-in">Results That Speak<br>for Themselves</h2>
+    <p class="section-subtitle fade-in">Every number below represents real campaigns, real budgets, and real business growth — not estimates.</p>
+
+    <div class="metrics-grid">
+      <div class="metric-card gold fade-in">
+        <div class="metric-icon">📈</div>
+        <div class="metric-num">4.5×</div>
+        <div class="metric-title">ROAS Achieved</div>
+        <div class="metric-desc">Consistent return on ad spend across Meta Ads & Google PMax campaigns for B2C brands.</div>
+      </div>
+      <div class="metric-card teal fade-in">
+        <div class="metric-icon">🎯</div>
+        <div class="metric-num">40%</div>
+        <div class="metric-title">CPL Reduction</div>
+        <div class="metric-desc">Reduced Cost-Per-Lead for a high-ticket service provider through structured creative A/B testing.</div>
+      </div>
+      <div class="metric-card red fade-in">
+        <div class="metric-icon">🔄</div>
+        <div class="metric-num">25%</div>
+        <div class="metric-title">Returning Customers</div>
+        <div class="metric-desc">Increased returning customer rate via retargeting sequences and integrated email automation flows.</div>
+      </div>
+      <div class="metric-card navy fade-in">
+        <div class="metric-icon">⚡</div>
+        <div class="metric-num">4+</div>
+        <div class="metric-title">Years Experience</div>
+        <div class="metric-desc">Full-funnel paid media management for e-commerce and lead generation across multiple verticals.</div>
+      </div>
+    </div>
+
+    <!-- Mini KPI row -->
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;" class="fade-in">
+      <div style="background:var(--cream);border-radius:14px;padding:20px;text-align:center;border:1.5px solid var(--border);">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:0.1em;margin-bottom:8px;">METRIC</div>
+        <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--navy);">CTR</div>
+        <div style="font-size:11px;color:var(--text-body);margin-top:4px;">Click-Through Rate</div>
+      </div>
+      <div style="background:var(--cream);border-radius:14px;padding:20px;text-align:center;border:1.5px solid var(--border);">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:0.1em;margin-bottom:8px;">METRIC</div>
+        <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--navy);">CPC</div>
+        <div style="font-size:11px;color:var(--text-body);margin-top:4px;">Cost Per Click</div>
+      </div>
+      <div style="background:var(--cream);border-radius:14px;padding:20px;text-align:center;border:1.5px solid var(--border);">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:0.1em;margin-bottom:8px;">METRIC</div>
+        <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--gold);">ROAS</div>
+        <div style="font-size:11px;color:var(--text-body);margin-top:4px;">Return on Ad Spend</div>
+      </div>
+      <div style="background:var(--cream);border-radius:14px;padding:20px;text-align:center;border:1.5px solid var(--border);">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:0.1em;margin-bottom:8px;">METRIC</div>
+        <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--accent-teal);">CPL</div>
+        <div style="font-size:11px;color:var(--text-body);margin-top:4px;">Cost Per Lead</div>
+      </div>
+      <div style="background:var(--cream);border-radius:14px;padding:20px;text-align:center;border:1.5px solid var(--border);">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:0.1em;margin-bottom:8px;">METRIC</div>
+        <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--accent-red);">CAC</div>
+        <div style="font-size:11px;color:var(--text-body);margin-top:4px;">Customer Acq. Cost</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ SKILLS ══════════════════ -->
+<section class="skills-section">
+  <div class="container">
+    <div class="section-label fade-in" style="color:var(--gold);">Skills & Platforms</div>
+    <h2 class="section-title fade-in">Tools of the Trade</h2>
+    <p class="section-subtitle fade-in">Proficiency built over 4+ years of live campaign management, not just theoretical knowledge.</p>
+
+    <div class="skills-grid">
+      <!-- Proficiency bars -->
+      <div class="skill-box fade-in">
+        <div class="skill-box-header">
+          <div class="skill-box-icon" style="background:rgba(201,168,76,0.12);">📊</div>
+          <div>
+            <div class="skill-box-title">Paid Media Proficiency</div>
+            <div class="skill-box-sub">Platform expertise by usage depth</div>
+          </div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-top"><span class="skill-name">Meta Ads (FB/IG)</span><span class="skill-pct">95%</span></div>
+          <div class="skill-track"><div class="skill-fill gold" style="width:95%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-top"><span class="skill-name">Google Ads (Search / PMax)</span><span class="skill-pct">90%</span></div>
+          <div class="skill-track"><div class="skill-fill gold" style="width:90%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-top"><span class="skill-name">Google Analytics 4 (GA4)</span><span class="skill-pct">88%</span></div>
+          <div class="skill-track"><div class="skill-fill teal" style="width:88%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-top"><span class="skill-name">Google Tag Manager</span><span class="skill-pct">85%</span></div>
+          <div class="skill-track"><div class="skill-fill teal" style="width:85%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-top"><span class="skill-name">TikTok Ads</span><span class="skill-pct">80%</span></div>
+          <div class="skill-track"><div class="skill-fill gold" style="width:80%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-top"><span class="skill-name">YouTube Ads</span><span class="skill-pct">78%</span></div>
+          <div class="skill-track"><div class="skill-fill teal" style="width:78%"></div></div>
+        </div>
+      </div>
+
+      <!-- Funnel strategy + platforms -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div class="skill-box fade-in" style="flex:0 0 auto;">
+          <div class="skill-box-header">
+            <div class="skill-box-icon" style="background:rgba(42,157,143,0.12);">🔄</div>
+            <div>
+              <div class="skill-box-title">Full-Funnel Strategy</div>
+              <div class="skill-box-sub">Campaign architecture expertise</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+            <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px;text-align:center;">
+              <div style="font-size:20px;margin-bottom:8px;">🌐</div>
+              <div style="font-size:12px;font-weight:600;color:var(--white);">Awareness</div>
+              <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">Reach & Brand</div>
+            </div>
+            <div style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:16px;text-align:center;">
+              <div style="font-size:20px;margin-bottom:8px;">💡</div>
+              <div style="font-size:12px;font-weight:600;color:var(--gold-light);">Consideration</div>
+              <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">Traffic & Leads</div>
+            </div>
+            <div style="background:rgba(42,157,143,0.08);border:1px solid rgba(42,157,143,0.2);border-radius:12px;padding:16px;text-align:center;">
+              <div style="font-size:20px;margin-bottom:8px;">✅</div>
+              <div style="font-size:12px;font-weight:600;color:#4ECDC4;">Conversion</div>
+              <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">Sales & ROAS</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-box fade-in" style="flex:1;">
+          <div class="skill-box-header">
+            <div class="skill-box-icon" style="background:rgba(231,111,81,0.12);">⚙️</div>
+            <div>
+              <div class="skill-box-title">All Platforms</div>
+              <div class="skill-box-sub">Actively used in campaigns</div>
+            </div>
+          </div>
+          <div class="platforms-grid">
+            <div class="platform-chip"><span>📘</span> Meta Ads</div>
+            <div class="platform-chip"><span>🔍</span> Google Search</div>
+            <div class="platform-chip"><span>🚀</span> Google PMax</div>
+            <div class="platform-chip"><span>📺</span> YouTube Ads</div>
+            <div class="platform-chip"><span>🎵</span> TikTok Ads</div>
+            <div class="platform-chip"><span>📌</span> Pinterest Ads</div>
+            <div class="platform-chip"><span>📊</span> GA4</div>
+            <div class="platform-chip"><span>🏷️</span> Google Tag Mgr</div>
+            <div class="platform-chip"><span>🔵</span> Meta Pixel</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ EXPERIENCE ══════════════════ -->
+<section class="experience-section">
+  <div class="container">
+    <div class="section-label fade-in">Work Experience</div>
+    <h2 class="section-title fade-in">Professional Journey</h2>
+    <div class="gold-divider fade-in"></div>
+
+    <div class="experience-card fade-in">
+      <div class="exp-header">
+        <div>
+          <div class="exp-company">AMD Digital Marketing Consultant</div>
+          <div class="exp-role">Performance Marketing Consultant — Digital Growth Specialist</div>
+        </div>
+        <div class="exp-badge">May 2021 — Present · 4+ Yrs</div>
+      </div>
+
+      <p style="font-size:14px;color:var(--text-body);line-height:1.8;max-width:700px;">
+        Managed end-to-end paid media campaigns for e-commerce and lead generation clients across Meta and Google Ads platforms. Responsible for strategy, creative testing, tracking infrastructure, budget allocation, and client reporting — delivering consistent performance improvements across all key KPIs.
+      </p>
+
+      <div class="exp-achievements">
+        <div class="achievement-item">
+          <div class="achievement-bullet">📈</div>
+          <div class="achievement-text">Scaled monthly ad budgets from <strong>PKR 200K → PKR 1M</strong> while maintaining <strong>4.5x ROAS</strong> through data-driven creative and audience optimization</div>
+        </div>
+        <div class="achievement-item">
+          <div class="achievement-bullet">🎯</div>
+          <div class="achievement-text">Reduced Cost-Per-Lead by <strong>40%</strong> using structured A/B testing of ad creatives and landing page variants across multiple verticals</div>
+        </div>
+        <div class="achievement-item">
+          <div class="achievement-bullet">🔄</div>
+          <div class="achievement-text">Built full-funnel strategies resulting in <strong>25% improvement in returning customer rates</strong> via retargeting and email automation</div>
+        </div>
+        <div class="achievement-item">
+          <div class="achievement-bullet">⚡</div>
+          <div class="achievement-text">Reduced Customer Acquisition Cost by <strong>30–40%</strong> across multiple accounts through structured creative iteration</div>
+        </div>
+        <div class="achievement-item">
+          <div class="achievement-bullet">🔧</div>
+          <div class="achievement-text">Implemented <strong>GTM, Meta Pixel & GA4</strong> tracking to ensure complete attribution and data accuracy across all campaigns</div>
+        </div>
+        <div class="achievement-item">
+          <div class="achievement-bullet">📋</div>
+          <div class="achievement-text">Created <strong>automated KPI dashboards</strong> tracking live CTR, CPC, CPL, ROAS & CAC for full client transparency</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ CERTIFICATIONS ══════════════════ -->
+<section class="certs-section">
+  <div class="container">
+    <div class="section-label fade-in">Certifications</div>
+    <h2 class="section-title fade-in">Certified & Verified</h2>
+    <p class="section-subtitle fade-in">Industry-recognized credentials validating expertise across the most important paid media platforms.</p>
+
+    <div class="certs-grid">
+      <div class="cert-card fade-in">
+        <div class="cert-logo meta">📘</div>
+        <div>
+          <div class="cert-name">Meta Blueprint Certified</div>
+          <div class="cert-detail">Meta Ads · Facebook · Instagram · Audience Strategy</div>
+          <span class="cert-status">Active Certification</span>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-logo google">🔍</div>
+        <div>
+          <div class="cert-name">Google Ads Certified</div>
+          <div class="cert-detail">Search · Display · Performance Max (PMax)</div>
+          <span class="cert-status">Active Certification</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-name">Allah Ditta Mohla</div>
+    <p class="footer-tagline">Performance Marketing Specialist · Available for immediate relocation to UAE, KSA & Qatar</p>
+    <div class="footer-links">
+      <a href="tel:+923303835509" class="footer-link">📞 +92 330 383 5509</a>
+      <a href="mailto:allahdittamohla96@gmail.com" class="footer-link">✉️ Email Me</a>
+      <a href="https://www.linkedin.com/in/allah-dittamohla-a0a9943ab" target="_blank" class="footer-link">🔗 LinkedIn</a>
+    </div>
+    <p class="copy">© 2025 Allah Ditta Mohla · Performance Marketing Portfolio</p>
+  </div>
+</footer>
+
+<script>
+  // Intersection Observer for fade-in animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Animate skill bars on scroll
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.skill-fill').forEach(bar => {
+          bar.style.animationPlayState = 'running';
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.skill-box').forEach(box => {
+    box.querySelectorAll('.skill-fill').forEach(bar => {
+      bar.style.animationPlayState = 'paused';
+    });
+    barObserver.observe(box);
+  });
+</script>
+</body>
+</html>
