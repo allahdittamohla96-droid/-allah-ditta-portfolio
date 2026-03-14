@@ -1,525 +1,1249 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Allah Ditta Mohla — Performance Marketing Specialist</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
-<style>
-:root {
-  --navy:   #0A1F3D;
-  --navy2:  #0d2a54;
-  --gold:   #C9982A;
-  --gold2:  #e8b84b;
-  --cream:  #F7F4EE;
-  --gray:   #4A4A4A;
-  --lgray:  #888;
-  --white:  #ffffff;
-  --card:   #ffffff;
-  --border: rgba(201,152,42,0.25);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--gray);overflow-x:hidden;}
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Allah Ditta Mohla — Performance Marketing Specialist</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com" />
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+   <style>
+      :root {
+         --navy: #0A1F3D;
+         --navy2: #0d2a54;
+         --gold: #C9982A;
+         --gold2: #e8b84b;
+         --cream: #F7F4EE;
+         --gray: #4A4A4A;
+         --lgray: #888;
+         --white: #ffffff;
+         --card: #ffffff;
+         --border: rgba(201, 152, 42, 0.25);
+      }
 
-/* ── CURSOR ── */
-body{cursor:none;}
-#cursor{position:fixed;width:12px;height:12px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s,width .2s,height .2s,background .2s;}
-#cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid var(--gold);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .12s ease,width .2s,height .2s,opacity .2s;}
-body:hover #cursor{opacity:1;}
+      *,
+      *::before,
+      *::after {
+         box-sizing: border-box;
+         margin: 0;
+         padding: 0;
+      }
 
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 60px;backdrop-filter:blur(12px);background:rgba(247,244,238,0.85);border-bottom:1px solid var(--border);}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--navy);letter-spacing:1px;text-decoration:none;}
-.nav-links{display:flex;gap:36px;list-style:none;}
-.nav-links a{text-decoration:none;font-size:13px;font-weight:500;color:var(--gray);letter-spacing:.5px;text-transform:uppercase;transition:color .2s;}
-.nav-links a:hover{color:var(--gold);}
-.nav-cta{background:var(--navy);color:var(--white)!important;padding:10px 22px;border-radius:2px;transition:background .2s!important;}
-.nav-cta:hover{background:var(--gold)!important;color:var(--white)!important;}
+      html {
+         scroll-behavior: smooth;
+      }
 
-/* ── HERO ── */
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:120px 60px 80px;gap:80px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(201,152,42,0.08) 0%,transparent 70%);pointer-events:none;}
-.hero-text{}
-.hero-eyebrow{font-family:'DM Mono',monospace;font-size:12px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;opacity:0;animation:fadeUp .8s .2s forwards;}
-.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,6vw,80px);font-weight:700;color:var(--navy);line-height:1.0;margin-bottom:16px;opacity:0;animation:fadeUp .8s .35s forwards;}
-.hero-name span{color:var(--gold);}
-.hero-title{font-size:16px;font-weight:400;color:var(--lgray);margin-bottom:32px;line-height:1.7;opacity:0;animation:fadeUp .8s .5s forwards;}
-.hero-stats{display:flex;gap:40px;margin-bottom:40px;opacity:0;animation:fadeUp .8s .65s forwards;}
-.stat{text-align:left;}
-.stat-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--navy);line-height:1;}
-.stat-num span{color:var(--gold);}
-.stat-label{font-size:11px;color:var(--lgray);letter-spacing:.5px;text-transform:uppercase;margin-top:4px;}
-.hero-btns{display:flex;gap:16px;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .8s forwards;}
-.btn-primary{background:var(--navy);color:var(--white);padding:14px 32px;border-radius:2px;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.5px;text-transform:uppercase;transition:all .25s;border:2px solid var(--navy);}
-.btn-primary:hover{background:var(--gold);border-color:var(--gold);}
-.btn-outline{background:transparent;color:var(--navy);padding:14px 32px;border-radius:2px;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.5px;text-transform:uppercase;transition:all .25s;border:2px solid var(--navy);}
-.btn-outline:hover{background:var(--navy);color:var(--white);}
+      body {
+         font-family: 'DM Sans', sans-serif;
+         background: var(--cream);
+         color: var(--gray);
+         overflow-x: hidden;
+      }
 
-/* ── HERO PHOTO ── */
-.hero-visual{display:flex;justify-content:center;align-items:center;opacity:0;animation:fadeIn 1s .4s forwards;}
-.photo-frame{position:relative;width:380px;height:460px;}
-.photo-frame::before{content:'';position:absolute;top:-16px;left:-16px;right:16px;bottom:16px;border:2px solid var(--gold);border-radius:4px;z-index:0;}
-.photo-frame::after{content:'';position:absolute;bottom:-16px;right:-16px;left:16px;top:16px;background:rgba(201,152,42,0.07);border-radius:4px;z-index:0;}
-.photo-frame img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:4px;position:relative;z-index:1;filter:grayscale(8%);}
-.badge{position:absolute;bottom:-24px;left:-24px;background:var(--navy);color:var(--white);padding:14px 20px;border-radius:4px;z-index:2;box-shadow:0 8px 32px rgba(10,31,61,0.3);}
-.badge-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:4px;}
-.badge-value{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;}
+      /* ── CURSOR ── */
+      body {
+         cursor: none;
+      }
 
-/* ── SECTION BASE ── */
-section{padding:100px 60px;}
-.section-label{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,52px);font-weight:700;color:var(--navy);line-height:1.1;margin-bottom:48px;}
-.section-title span{color:var(--gold);}
+      #cursor {
+         position: fixed;
+         width: 12px;
+         height: 12px;
+         background: var(--gold);
+         border-radius: 50%;
+         pointer-events: none;
+         z-index: 9999;
+         transform: translate(-50%, -50%);
+         transition: transform .1s, width .2s, height .2s, background .2s;
+      }
 
-/* ── ABOUT ── */
-.about{background:var(--navy);color:var(--white);}
-.about .section-label{color:var(--gold);}
-.about .section-title{color:var(--white);}
-.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:center;}
-.about-text p{font-size:16px;line-height:1.9;color:rgba(255,255,255,0.75);margin-bottom:20px;}
-.about-text p strong{color:var(--gold);}
-.about-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;}
-.tag{background:rgba(201,152,42,0.15);border:1px solid rgba(201,152,42,0.3);color:var(--gold);padding:7px 16px;border-radius:2px;font-size:12px;font-weight:500;letter-spacing:.5px;}
-.about-certs{}
-.cert-item{display:flex;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
-.cert-icon{width:40px;height:40px;background:rgba(201,152,42,0.15);border:1px solid rgba(201,152,42,0.3);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
-.cert-name{font-size:14px;font-weight:500;color:var(--white);}
-.cert-issuer{font-size:12px;color:var(--lgray);}
+      #cursor-ring {
+         position: fixed;
+         width: 36px;
+         height: 36px;
+         border: 1.5px solid var(--gold);
+         border-radius: 50%;
+         pointer-events: none;
+         z-index: 9998;
+         transform: translate(-50%, -50%);
+         transition: transform .12s ease, width .2s, height .2s, opacity .2s;
+      }
 
-/* ── RESULTS ── */
-.results{background:var(--cream);}
-.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.result-card{background:var(--white);border:1px solid var(--border);padding:36px 28px;border-radius:4px;transition:all .3s;position:relative;overflow:hidden;}
-.result-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s;}
-.result-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(10,31,61,0.1);}
-.result-card:hover::before{transform:scaleX(1);}
-.result-industry{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;}
-.result-stat{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:8px;}
-.result-desc{font-size:13px;color:var(--lgray);line-height:1.6;}
+      body:hover #cursor {
+         opacity: 1;
+      }
 
-/* ── EXPERIENCE ── */
-.experience{background:var(--white);}
-.exp-timeline{position:relative;padding-left:32px;}
-.exp-timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--gold),rgba(201,152,42,0.1));}
-.exp-item{position:relative;margin-bottom:56px;}
-.exp-dot{position:absolute;left:-39px;top:6px;width:14px;height:14px;background:var(--gold);border-radius:50%;border:3px solid var(--cream);}
-.exp-period{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);letter-spacing:2px;margin-bottom:8px;}
-.exp-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--navy);margin-bottom:4px;}
-.exp-company{font-size:14px;color:var(--lgray);margin-bottom:16px;}
-.exp-verticals{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
-.vertical-tag{background:rgba(10,31,61,0.06);color:var(--navy);padding:5px 12px;border-radius:2px;font-size:11px;font-weight:500;letter-spacing:.3px;}
-.exp-bullets{list-style:none;}
-.exp-bullets li{font-size:14px;color:var(--gray);line-height:1.7;padding-left:16px;position:relative;margin-bottom:8px;}
-.exp-bullets li::before{content:'▸';position:absolute;left:0;color:var(--gold);font-size:12px;}
-.exp-bullets li strong{color:var(--navy);font-weight:600;}
+      /* ── NAV ── */
+      nav {
+         position: fixed;
+         top: 0;
+         left: 0;
+         right: 0;
+         z-index: 100;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 20px 60px;
+         backdrop-filter: blur(12px);
+         background: rgba(247, 244, 238, 0.85);
+         border-bottom: 1px solid var(--border);
+      }
 
-/* ── SKILLS ── */
-.skills{background:var(--cream);}
-.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;}
-.skill-group{background:var(--white);border:1px solid var(--border);padding:28px;border-radius:4px;}
-.skill-group-title{font-size:12px;font-weight:600;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;}
-.skill-pills{display:flex;flex-wrap:wrap;gap:8px;}
-.skill-pill{background:var(--cream);border:1px solid rgba(10,31,61,0.12);color:var(--navy);padding:6px 14px;border-radius:2px;font-size:12px;font-weight:500;transition:all .2s;}
-.skill-pill:hover{background:var(--navy);color:var(--white);border-color:var(--navy);}
+      .nav-logo {
+         font-family: 'Cormorant Garamond', serif;
+         font-size: 22px;
+         font-weight: 600;
+         color: var(--navy);
+         letter-spacing: 1px;
+         text-decoration: none;
+      }
 
-/* ── CONTACT ── */
-.contact{background:var(--navy);color:var(--white);text-align:center;}
-.contact .section-title{color:var(--white);margin-bottom:16px;}
-.contact-sub{font-size:16px;color:rgba(255,255,255,0.6);margin-bottom:48px;}
-.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:700px;margin:0 auto 48px;}
-.contact-item{background:rgba(255,255,255,0.05);border:1px solid rgba(201,152,42,0.2);padding:24px;border-radius:4px;text-decoration:none;color:var(--white);transition:all .3s;display:block;}
-.contact-item:hover{background:rgba(201,152,42,0.12);border-color:var(--gold);transform:translateY(-4px);}
-.contact-icon{font-size:24px;margin-bottom:10px;display:block;}
-.contact-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:4px;}
-.contact-val{font-size:13px;color:rgba(255,255,255,0.8);}
-.contact-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+      .nav-links {
+         display: flex;
+         gap: 36px;
+         list-style: none;
+      }
 
-/* ── FOOTER ── */
-footer{background:#060f1e;color:rgba(255,255,255,0.4);text-align:center;padding:24px;font-size:12px;letter-spacing:.5px;}
+      .nav-links a {
+         text-decoration: none;
+         font-size: 13px;
+         font-weight: 500;
+         color: var(--gray);
+         letter-spacing: .5px;
+         text-transform: uppercase;
+         transition: color .2s;
+      }
 
-/* ── ANIMATIONS ── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s;}
-.reveal.visible{opacity:1;transform:none;}
+      .nav-links a:hover {
+         color: var(--gold);
+      }
 
-/* ── MOBILE ── */
-@media(max-width:900px){
-  nav{padding:16px 24px;}
-  .nav-links{display:none;}
-  .hero{grid-template-columns:1fr;padding:100px 24px 60px;text-align:center;}
-  .hero-stats{justify-content:center;}
-  .hero-btns{justify-content:center;}
-  .hero-visual{order:-1;}
-  .photo-frame{width:260px;height:320px;}
-  section{padding:70px 24px;}
-  .about-grid,.results-grid,.skills-grid{grid-template-columns:1fr;}
-  .contact-grid{grid-template-columns:1fr;}
-  .exp-timeline{padding-left:20px;}
-}
-</style>
+      .nav-cta {
+         background: var(--navy);
+         color: var(--white) !important;
+         padding: 10px 22px;
+         border-radius: 2px;
+         transition: background .2s !important;
+      }
+
+      .nav-cta:hover {
+         background: var(--gold) !important;
+         color: var(--white) !important;
+      }
+
+      /* ── HERO ── */
+      .hero {
+         min-height: 100vh;
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+         align-items: center;
+         padding: 120px 60px 80px;
+         gap: 80px;
+         position: relative;
+         overflow: hidden;
+      }
+
+      .hero::before {
+         content: '';
+         position: absolute;
+         top: -200px;
+         right: -200px;
+         width: 600px;
+         height: 600px;
+         background: radial-gradient(circle, rgba(201, 152, 42, 0.08) 0%, transparent 70%);
+         pointer-events: none;
+      }
+
+      .hero-text {}
+
+      .hero-eyebrow {
+         font-family: 'DM Mono', monospace;
+         font-size: 12px;
+         color: var(--gold);
+         letter-spacing: 3px;
+         text-transform: uppercase;
+         margin-bottom: 20px;
+         opacity: 0;
+         animation: fadeUp .8s .2s forwards;
+      }
+
+      .hero-name {
+         font-family: 'Cormorant Garamond', serif;
+         font-size: clamp(52px, 6vw, 80px);
+         font-weight: 700;
+         color: var(--navy);
+         line-height: 1.0;
+         margin-bottom: 16px;
+         opacity: 0;
+         animation: fadeUp .8s .35s forwards;
+      }
+
+      .hero-name span {
+         color: var(--gold);
+      }
+
+      .hero-title {
+         font-size: 16px;
+         font-weight: 400;
+         color: var(--lgray);
+         margin-bottom: 32px;
+         line-height: 1.7;
+         opacity: 0;
+         animation: fadeUp .8s .5s forwards;
+      }
+
+      .hero-stats {
+         display: flex;
+         gap: 40px;
+         margin-bottom: 40px;
+         opacity: 0;
+         animation: fadeUp .8s .65s forwards;
+      }
+
+      .stat {
+         text-align: left;
+      }
+
+      .stat-num {
+         font-family: 'Cormorant Garamond', serif;
+         font-size: 36px;
+         font-weight: 700;
+         color: var(--navy);
+         line-height: 1;
+      }
+
+      .stat-num span {
+         color: var(--gold);
+      }
+
+      .stat-label {
+         font-size: 11px;
+         color: var(--lgray);
+         letter-spacing: .5px;
+         text-transform: uppercase;
+         margin-top: 4px;
+      }
+
+      .hero-btns {
+         display: flex;
+         gap: 16px;
+         flex-wrap: wrap;
+         opacity: 0;
+         animation: fadeUp .8s .8s forwards;
+      }
+
+      .btn-primary {
+         background: var(--navy);
+         color: var(--white);
+         padding: 14px 32px;
+         border-radius: 2px;
+         text-decoration: none;
+         font-size: 13px;
+         font-weight: 500;
+         letter-spacing: .5px;
+         text-transform: uppercase;
+         transition: all .25s;
+         border: 2px solid var(--navy);
+      }
+
+      .btn-primary:hover {
+         background: var(--gold);
+         border-color: var(--gold);
+      }
+
+      .btn-outline {
+         background: transparent;
+         color: var(--navy);
+         padding: 14px 32px;
+         border-radius: 2px;
+         text-decoration: none;
+         font-size: 13px;
+         font-weight: 500;
+         letter-spacing: .5px;
+         text-transform: uppercase;
+         transition: all .25s;
+         border: 2px solid var(--navy);
+      }
+
+      .btn-outline:hover {
+         background: var(--navy);
+         color: var(--white);
+      }
+
+      /* ── HERO PHOTO ── */
+      .hero-visual {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         opacity: 0;
+         animation: fadeIn 1s .4s forwards;
+      }
+
+      .photo-frame {
+         position: relative;
+         width: 380px;
+         height: 460px;
+      }
+
+      .photo-frame::before {
+         content: '';
+         position: absolute;
+         top: -16px;
+         left: -16px;
+         right: 16px;
+         bottom: 16px;
+         border: 2px solid var(--gold);
+         border-radius: 4px;
+         z-index: 0;
+      }
+
+      .photo-frame::after {
+         content: '';
+         position: absolute;
+         bottom: -16px;
+         right: -16px;
+         left: 16px;
+         top: 16px;
+         background: rgba(201, 152, 42, 0.07);
+         border-radius: 4px;
+         z-index: 0;
+      }
+
+      .photo-frame img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         object-position: top;
+         border-radius: 4px;
+         position: relative;
+         z-index: 1;
+         filter: grayscale(8%);
+      }
+
+      .badge {
+         position: absolute;
+         bottom: -24px;
+         left: -24px;
+         background: var(--navy);
+         color: var(--white);
+         padding: 14px 20px;
+         border-radius: 4px;
+         z-index: 2;
+         box-shadow: 0 8px 32px rgba(10, 31, 61, 0.3);
+      }
+
+      .badge-label {
+         font-size: 10px;
+         letter-spacing: 2px;
+         text-transform: uppercase;
+         color: var(--gold);
+         display: block;
+         margin-bottom: 4px;
+      }
+
+      .badge-value {
+         font-family: 'Cormorant Garamond', serif;
+         font-size: 18px;
+         font-weight: 700;
+      }
+
+      /* ── SECTION BASE ── */
+      section {
+         padding: 100px 60px;
+      }
+
+      .section-label {
+         font-family: 'DM Mono', monospace;
+         font-size: 11px;
+         color: var(--gold);
+         letter-spacing: 3px;
+         text-transform: uppercase;
+         margin-bottom: 12px;
+      }
+
+      .section-title {
+         font-family: 'Cormorant Garamond', serif;
+         font-size: clamp(36px, 4vw, 52px);
+         font-weight: 700;
+         color: var(--navy);
+         line-height: 1.1;
+         margin-bottom: 48px;
+      }
+
+      .section-title span {
+         color: var(--gold);
+      }
+
+      /* ── ABOUT ── */
+      .about {
+         background: var(--navy);
+         color: var(--white);
+      }
+
+      .about .section-label {
+         color: var(--gold);
+      }
+
+      .about .section-title {
+         color: var(--white);
+      }
+
+      .about-grid {
+         display: grid;
+         grid-template-columns: 1.2fr 1fr;
+         gap: 80px;
+         align-items: center;
+      }
+
+      .about-text p {
+         font-size: 16px;
+         line-height: 1.9;
+         color: rgba(255, 255, 255, 0.75);
+         margin-bottom: 20px;
+      }
+
+      .about-text p strong {
+         color: var(--gold);
+      }
+
+      .about-tags {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 10px;
+         margin-top: 32px;
+      }
+
+      .tag {
+         background: rgba(201, 152, 42, 0.15);
+         border: 1px solid rgba(201, 152, 42, 0.3);
+         color: var(--gold);
+         padding: 7px 16px;
+         border-radius: 2px;
+         font-size: 12px;
+         font-weight: 500;
+         letter-spacing: .5px;
+      }
+
+      .about-certs {}
+
+      .cert-item {
+         display: flex;
+         align-items: center;
+         gap: 16px;
+         padding: 18px 0;
+         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .cert-icon {
+         width: 40px;
+         height: 40px;
+         background: rgba(201, 152, 42, 0.15);
+         border: 1px solid rgba(201, 152, 42, 0.3);
+         border-radius: 2px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-size: 18px;
+         flex-shrink: 0;
+      }
+
+      .cert-name {
+         font-size: 14px;
+         font-weight: 500;
+         color: var(--white);
+      }
+
+      .cert-issuer {
+         font-size: 12px;
+         color: var(--lgray);
+      }
+
+      /* ── RESULTS ── */
+      .results {
+         background: var(--cream);
+      }
+
+      .results-grid {
+         display: grid;
+         grid-template-columns: repeat(3, 1fr);
+         gap: 24px;
+      }
+
+      .result-card {
+         background: var(--white);
+         border: 1px solid var(--border);
+         padding: 36px 28px;
+         border-radius: 4px;
+         transition: all .3s;
+         position: relative;
+         overflow: hidden;
+      }
+
+      .result-card::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         height: 3px;
+         background: var(--gold);
+         transform: scaleX(0);
+         transform-origin: left;
+         transition: transform .3s;
+      }
+
+      .result-card:hover {
+         transform: translateY(-6px);
+         box-shadow: 0 20px 60px rgba(10, 31, 61, 0.1);
+      }
+
+      .result-card:hover::before {
+         transform: scaleX(1);
+      }
+
+      .result-industry {
+         font-family: 'DM Mono', monospace;
+         font-size: 10px;
+         color: var(--gold);
+         letter-spacing: 2px;
+         text-transform: uppercase;
+         margin-bottom: 12px;
+      }
+
+      .result-stat {
+         font-family: 'Cormorant Garamond', serif;
+         font-size: 48px;
+         font-weight: 700;
+         color: var(--navy);
+         line-height: 1;
+         margin-bottom: 8px;
+      }
+
+      .result-desc {
+         font-size: 13px;
+         color: var(--lgray);
+         line-height: 1.6;
+      }
+
+      /* ── EXPERIENCE ── */
+      .experience {
+         background: var(--white);
+      }
+
+      .exp-timeline {
+         position: relative;
+         padding-left: 32px;
+      }
+
+      .exp-timeline::before {
+         content: '';
+         position: absolute;
+         left: 0;
+         top: 0;
+         bottom: 0;
+         width: 2px;
+         background: linear-gradient(to bottom, var(--gold), rgba(201, 152, 42, 0.1));
+      }
+
+      .exp-item {
+         position: relative;
+         margin-bottom: 56px;
+      }
+
+      .exp-dot {
+         position: absolute;
+         left: -39px;
+         top: 6px;
+         width: 14px;
+         height: 14px;
+         background: var(--gold);
+         border-radius: 50%;
+         border: 3px solid var(--cream);
+      }
+
+      .exp-period {
+         font-family: 'DM Mono', monospace;
+         font-size: 11px;
+         color: var(--gold);
+         letter-spacing: 2px;
+         margin-bottom: 8px;
+      }
+
+      .exp-title {
+         font-family: 'Cormorant Garamond', serif;
+         font-size: 24px;
+         font-weight: 700;
+         color: var(--navy);
+         margin-bottom: 4px;
+      }
+
+      .exp-company {
+         font-size: 14px;
+         color: var(--lgray);
+         margin-bottom: 16px;
+      }
+
+      .exp-verticals {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 8px;
+         margin-bottom: 16px;
+      }
+
+      .vertical-tag {
+         background: rgba(10, 31, 61, 0.06);
+         color: var(--navy);
+         padding: 5px 12px;
+         border-radius: 2px;
+         font-size: 11px;
+         font-weight: 500;
+         letter-spacing: .3px;
+      }
+
+      .exp-bullets {
+         list-style: none;
+      }
+
+      .exp-bullets li {
+         font-size: 14px;
+         color: var(--gray);
+         line-height: 1.7;
+         padding-left: 16px;
+         position: relative;
+         margin-bottom: 8px;
+      }
+
+      .exp-bullets li::before {
+         content: '▸';
+         position: absolute;
+         left: 0;
+         color: var(--gold);
+         font-size: 12px;
+      }
+
+      .exp-bullets li strong {
+         color: var(--navy);
+         font-weight: 600;
+      }
+
+      /* ── SKILLS ── */
+      .skills {
+         background: var(--cream);
+      }
+
+      .skills-grid {
+         display: grid;
+         grid-template-columns: repeat(2, 1fr);
+         gap: 32px;
+      }
+
+      .skill-group {
+         background: var(--white);
+         border: 1px solid var(--border);
+         padding: 28px;
+         border-radius: 4px;
+      }
+
+      .skill-group-title {
+         font-size: 12px;
+         font-weight: 600;
+         color: var(--gold);
+         letter-spacing: 2px;
+         text-transform: uppercase;
+         margin-bottom: 16px;
+      }
+
+      .skill-pills {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 8px;
+      }
+
+      .skill-pill {
+         background: var(--cream);
+         border: 1px solid rgba(10, 31, 61, 0.12);
+         color: var(--navy);
+         padding: 6px 14px;
+         border-radius: 2px;
+         font-size: 12px;
+         font-weight: 500;
+         transition: all .2s;
+      }
+
+      .skill-pill:hover {
+         background: var(--navy);
+         color: var(--white);
+         border-color: var(--navy);
+      }
+
+      /* ── CONTACT ── */
+      .contact {
+         background: var(--navy);
+         color: var(--white);
+         text-align: center;
+      }
+
+      .contact .section-title {
+         color: var(--white);
+         margin-bottom: 16px;
+      }
+
+      .contact-sub {
+         font-size: 16px;
+         color: rgba(255, 255, 255, 0.6);
+         margin-bottom: 48px;
+      }
+
+      .contact-grid {
+         display: grid;
+         grid-template-columns: repeat(3, 1fr);
+         gap: 24px;
+         max-width: 700px;
+         margin: 0 auto 48px;
+      }
+
+      .contact-item {
+         background: rgba(255, 255, 255, 0.05);
+         border: 1px solid rgba(201, 152, 42, 0.2);
+         padding: 24px;
+         border-radius: 4px;
+         text-decoration: none;
+         color: var(--white);
+         transition: all .3s;
+         display: block;
+      }
+
+      .contact-item:hover {
+         background: rgba(201, 152, 42, 0.12);
+         border-color: var(--gold);
+         transform: translateY(-4px);
+      }
+
+      .contact-icon {
+         font-size: 24px;
+         margin-bottom: 10px;
+         display: block;
+      }
+
+      .contact-label {
+         font-size: 10px;
+         letter-spacing: 2px;
+         text-transform: uppercase;
+         color: var(--gold);
+         display: block;
+         margin-bottom: 4px;
+      }
+
+      .contact-val {
+         font-size: 13px;
+         color: rgba(255, 255, 255, 0.8);
+      }
+
+      .contact-btns {
+         display: flex;
+         gap: 16px;
+         justify-content: center;
+         flex-wrap: wrap;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+         background: #060f1e;
+         color: rgba(255, 255, 255, 0.4);
+         text-align: center;
+         padding: 24px;
+         font-size: 12px;
+         letter-spacing: .5px;
+      }
+
+      /* ── ANIMATIONS ── */
+      @keyframes fadeUp {
+         from {
+            opacity: 0;
+            transform: translateY(24px);
+         }
+
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+
+      @keyframes fadeIn {
+         from {
+            opacity: 0;
+         }
+
+         to {
+            opacity: 1;
+         }
+      }
+
+      .reveal {
+         opacity: 0;
+         transform: translateY(30px);
+         transition: opacity .7s, transform .7s;
+      }
+
+      .reveal.visible {
+         opacity: 1;
+         transform: none;
+      }
+
+      /* ── MOBILE ── */
+      @media(max-width:900px) {
+         nav {
+            padding: 16px 24px;
+         }
+
+         .nav-links {
+            display: none;
+         }
+
+         .hero {
+            grid-template-columns: 1fr;
+            padding: 100px 24px 60px;
+            text-align: center;
+         }
+
+         .hero-stats {
+            justify-content: center;
+         }
+
+         .hero-btns {
+            justify-content: center;
+         }
+
+         .hero-visual {
+            order: -1;
+         }
+
+         .photo-frame {
+            width: 260px;
+            height: 320px;
+         }
+
+         section {
+            padding: 70px 24px;
+         }
+
+         .about-grid,
+         .results-grid,
+         .skills-grid {
+            grid-template-columns: 1fr;
+         }
+
+         .contact-grid {
+            grid-template-columns: 1fr;
+         }
+
+         .exp-timeline {
+            padding-left: 20px;
+         }
+      }
+   </style>
 </head>
+
 <body>
 
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
+   <div id="cursor"></div>
+   <div id="cursor-ring"></div>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">ADM</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#results">Results</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
-  </ul>
-</nav>
+   <!-- NAV -->
+   <nav>
+      <a href="#" class="nav-logo">ADM</a>
+      <ul class="nav-links">
+         <li><a href="#about">About</a></li>
+         <li><a href="#results">Results</a></li>
+         <li><a href="#experience">Experience</a></li>
+         <li><a href="#skills">Skills</a></li>
+         <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+      </ul>
+   </nav>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-text">
-    <p class="hero-eyebrow">Dubai · UAE · Available Now</p>
-    <h1 class="hero-name">Allah Ditta<br/><span>Mohla</span></h1>
-    <p class="hero-title">Performance Marketing Specialist · Paid Media Buyer<br/>Meta · Google · TikTok · Snapchat Ads · 7 Years Experience</p>
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-num">4.5<span>×</span></div>
-        <div class="stat-label">Peak ROAS</div>
+   <!-- HERO -->
+   <section class="hero" id="home">
+      <div class="hero-text">
+         <p class="hero-eyebrow">Dubai · UAE · Available Now</p>
+         <h1 class="hero-name">Allah Ditta<br /><span>Mohla</span></h1>
+         <p class="hero-title">Performance Marketing Specialist · Paid Media Buyer<br />Meta · Google · TikTok · Snapchat Ads · 7 Years Experience</p>
+         <div class="hero-stats">
+            <div class="stat">
+               <div class="stat-num">4.5<span>×</span></div>
+               <div class="stat-label">Peak ROAS</div>
+            </div>
+            <div class="stat">
+               <div class="stat-num">7<span>+</span></div>
+               <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat">
+               <div class="stat-num">$50<span>K</span></div>
+               <div class="stat-label">Monthly Budget Managed</div>
+            </div>
+         </div>
+         <div class="hero-btns">
+            <a href="#contact" class="btn-primary">Hire Me in Dubai</a>
+            <a href="#results" class="btn-outline">View Results</a>
+         </div>
       </div>
-      <div class="stat">
-        <div class="stat-num">7<span>+</span></div>
-        <div class="stat-label">Years Experience</div>
+      <div class="hero-visual">
+         <div class="photo-frame">
+            <img src="https://allahdittamohla96-droid.github.io/-allah-ditta-portfolio/profile.jpg" alt="Allah Ditta Mohla — Performance Marketing Specialist" />
+            <div class="badge">
+               <span class="badge-label">Status</span>
+               <span class="badge-value">Open to Work 🟢</span>
+            </div>
+         </div>
       </div>
-      <div class="stat">
-        <div class="stat-num">$50<span>K</span></div>
-        <div class="stat-label">Monthly Budget Managed</div>
-      </div>
-    </div>
-    <div class="hero-btns">
-      <a href="#contact" class="btn-primary">Hire Me in Dubai</a>
-      <a href="#results" class="btn-outline">View Results</a>
-    </div>
-  </div>
-  <div class="hero-visual">
-    <div class="photo-frame">
-      <img src="https://allahdittamohla96-droid.github.io/-allah-ditta-portfolio/profile.jpg" alt="Allah Ditta Mohla — Performance Marketing Specialist"/>
-      <div class="badge">
-        <span class="badge-label">Status</span>
-        <span class="badge-value">Open to Work 🟢</span>
-      </div>
-    </div>
-  </div>
-</section>
+   </section>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="reveal">
-    <p class="section-label">Who I Am</p>
-    <h2 class="section-title">Dubai Market <span>Performance</span> Specialist</h2>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>I'm a <strong>Performance Marketing Specialist</strong> with 7 years of paid media experience delivering measurable ROI across Dubai's most competitive verticals — Real Estate, Fashion & Luxury, F&B, Hospitality, Beauty, Automotive, and Education.</p>
-        <p>I've managed monthly ad budgets from <strong>USD 3,000 to USD 50,000</strong> across Google Ads, Meta Ads, TikTok Ads, and Snapchat Ads — consistently hitting client targets with data-driven strategy, rigorous A/B testing, and disciplined budget management.</p>
-        <p>I'm based in Pakistan and <strong>available for immediate relocation to Dubai</strong> — zero notice period, ready to contribute from day one.</p>
-        <div class="about-tags">
-          <span class="tag">Meta Blueprint Certified</span>
-          <span class="tag">Google Ads Certified</span>
-          <span class="tag">GA4 Certified</span>
-          <span class="tag">TikTok Ads Academy</span>
-          <span class="tag">Arabic — Business Conversational</span>
-          <span class="tag">Dubai Market Specialist</span>
-        </div>
+   <!-- ABOUT -->
+   <section class="about" id="about">
+      <div class="reveal">
+         <p class="section-label">Who I Am</p>
+         <h2 class="section-title">Dubai Market <span>Performance</span> Specialist</h2>
+         <div class="about-grid">
+            <div class="about-text">
+               <p>I'm a <strong>Performance Marketing Specialist</strong> with 7 years of paid media experience delivering measurable ROI across Dubai's most competitive verticals — Real Estate, Fashion & Luxury, F&B, Hospitality, Beauty, Automotive, and Education.</p>
+               <p>I've managed monthly ad budgets from <strong>USD 3,000 to USD 50,000</strong> across Google Ads, Meta Ads, TikTok Ads, and Snapchat Ads — consistently hitting client targets with data-driven strategy, rigorous A/B testing, and disciplined budget management.</p>
+               <p>I'm based in Pakistan and <strong>available for immediate relocation to Dubai</strong> — zero notice period, ready to contribute from day one.</p>
+               <div class="about-tags">
+                  <span class="tag">Meta Blueprint Certified</span>
+                  <span class="tag">Google Ads Certified</span>
+                  <span class="tag">GA4 Certified</span>
+                  <span class="tag">TikTok Ads Academy</span>
+                  <span class="tag">Arabic — Business Conversational</span>
+                  <span class="tag">Dubai Market Specialist</span>
+               </div>
+            </div>
+            <div class="about-certs">
+               <div class="cert-item">
+                  <div class="cert-icon">🎯</div>
+                  <div>
+                     <div class="cert-name">Meta Blueprint</div>
+                     <div class="cert-issuer">Media Buying Professional</div>
+                  </div>
+               </div>
+               <div class="cert-item">
+                  <div class="cert-icon">🔍</div>
+                  <div>
+                     <div class="cert-name">Google Ads Certified</div>
+                     <div class="cert-issuer">Search · Shopping · Performance Max</div>
+                  </div>
+               </div>
+               <div class="cert-item">
+                  <div class="cert-icon">📊</div>
+                  <div>
+                     <div class="cert-name">Google Analytics 4</div>
+                     <div class="cert-issuer">GA4 Certification</div>
+                  </div>
+               </div>
+               <div class="cert-item">
+                  <div class="cert-icon">🎵</div>
+                  <div>
+                     <div class="cert-name">TikTok Ads Academy</div>
+                     <div class="cert-issuer">Paid Social — TikTok Platform</div>
+                  </div>
+               </div>
+               <div class="cert-item">
+                  <div class="cert-icon">🌍</div>
+                  <div>
+                     <div class="cert-name">GCC/MENA Markets</div>
+                     <div class="cert-issuer">UAE · KSA · Qatar · Kuwait</div>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
-      <div class="about-certs">
-        <div class="cert-item">
-          <div class="cert-icon">🎯</div>
-          <div><div class="cert-name">Meta Blueprint</div><div class="cert-issuer">Media Buying Professional</div></div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-icon">🔍</div>
-          <div><div class="cert-name">Google Ads Certified</div><div class="cert-issuer">Search · Shopping · Performance Max</div></div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-icon">📊</div>
-          <div><div class="cert-name">Google Analytics 4</div><div class="cert-issuer">GA4 Certification</div></div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-icon">🎵</div>
-          <div><div class="cert-name">TikTok Ads Academy</div><div class="cert-issuer">Paid Social — TikTok Platform</div></div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-icon">🌍</div>
-          <div><div class="cert-name">GCC/MENA Markets</div><div class="cert-issuer">UAE · KSA · Qatar · Kuwait</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+   </section>
 
-<!-- RESULTS -->
-<section class="results" id="results">
-  <div class="reveal">
-    <p class="section-label">Proven ROI</p>
-    <h2 class="section-title">Key Campaign <span>Results</span></h2>
-    <div class="results-grid">
-      <div class="result-card">
-        <div class="result-industry">Fashion · Dubai · Meta Ads</div>
-        <div class="result-stat">4.5×</div>
-        <div class="result-desc">ROAS — Scaled budget from USD 5K to 18K/month while maintaining returns over 6 months</div>
+   <!-- RESULTS -->
+   <section class="results" id="results">
+      <div class="reveal">
+         <p class="section-label">Proven ROI</p>
+         <h2 class="section-title">Key Campaign <span>Results</span></h2>
+         <div class="results-grid">
+            <div class="result-card">
+               <div class="result-industry">Fashion · Dubai · Meta Ads</div>
+               <div class="result-stat">4.5×</div>
+               <div class="result-desc">ROAS — Scaled budget from USD 5K to 18K/month while maintaining returns over 6 months</div>
+            </div>
+            <div class="result-card">
+               <div class="result-industry">E-Commerce · GCC · Advantage+</div>
+               <div class="result-stat">5.3×</div>
+               <div class="result-desc">ROAS — Highest portfolio result via Advantage+ Shopping and dynamic retargeting stack</div>
+            </div>
+            <div class="result-card">
+               <div class="result-industry">Skincare · UAE · Google Shopping</div>
+               <div class="result-stat">38%</div>
+               <div class="result-desc">CPA Reduction — Smart Bidding, feed restructuring, and negative keyword management</div>
+            </div>
+            <div class="result-card">
+               <div class="result-industry">Real Estate · Dubai · Meta Ads</div>
+               <div class="result-stat">34%</div>
+               <div class="result-desc">CPL Reduction — Lookalike Audiences from CRM buyer data, lead-to-viewing rate up 28%</div>
+            </div>
+            <div class="result-card">
+               <div class="result-industry">Fashion · Dubai · TikTok Ads</div>
+               <div class="result-stat">2.8×</div>
+               <div class="result-desc">ROAS in 45 Days — Launched from zero targeting Dubai's 18–34 urban demographic</div>
+            </div>
+            <div class="result-card">
+               <div class="result-industry">F&B · Dubai · Ramadan Campaign</div>
+               <div class="result-stat">3.2×</div>
+               <div class="result-desc">ROAS — Seasonal Meta + Snapchat strategy during UAE's highest-competition ad period</div>
+            </div>
+            <div class="result-card">
+               <div class="result-industry">B2B · Google Ads · SKAG</div>
+               <div class="result-stat">42%</div>
+               <div class="result-desc">CPL Reduction — SKAG restructure + Meta Instant Forms; SQL rate improved 35%</div>
+            </div>
+            <div class="result-card">
+               <div class="result-industry">Real Estate · Budget Scale</div>
+               <div class="result-stat">3×</div>
+               <div class="result-desc">Budget Scaled — USD 12K to 35K/month while maintaining lead quality over 8 months</div>
+            </div>
+            <div class="result-card">
+               <div class="result-industry">Dubai Shopping Festival</div>
+               <div class="result-stat">3.8×</div>
+               <div class="result-desc">ROAS — Full-funnel Meta campaign for fashion retailer during Dubai's peak sale event</div>
+            </div>
+         </div>
       </div>
-      <div class="result-card">
-        <div class="result-industry">E-Commerce · GCC · Advantage+</div>
-        <div class="result-stat">5.3×</div>
-        <div class="result-desc">ROAS — Highest portfolio result via Advantage+ Shopping and dynamic retargeting stack</div>
-      </div>
-      <div class="result-card">
-        <div class="result-industry">Skincare · UAE · Google Shopping</div>
-        <div class="result-stat">38%</div>
-        <div class="result-desc">CPA Reduction — Smart Bidding, feed restructuring, and negative keyword management</div>
-      </div>
-      <div class="result-card">
-        <div class="result-industry">Real Estate · Dubai · Meta Ads</div>
-        <div class="result-stat">34%</div>
-        <div class="result-desc">CPL Reduction — Lookalike Audiences from CRM buyer data, lead-to-viewing rate up 28%</div>
-      </div>
-      <div class="result-card">
-        <div class="result-industry">Fashion · Dubai · TikTok Ads</div>
-        <div class="result-stat">2.8×</div>
-        <div class="result-desc">ROAS in 45 Days — Launched from zero targeting Dubai's 18–34 urban demographic</div>
-      </div>
-      <div class="result-card">
-        <div class="result-industry">F&B · Dubai · Ramadan Campaign</div>
-        <div class="result-stat">3.2×</div>
-        <div class="result-desc">ROAS — Seasonal Meta + Snapchat strategy during UAE's highest-competition ad period</div>
-      </div>
-      <div class="result-card">
-        <div class="result-industry">B2B · Google Ads · SKAG</div>
-        <div class="result-stat">42%</div>
-        <div class="result-desc">CPL Reduction — SKAG restructure + Meta Instant Forms; SQL rate improved 35%</div>
-      </div>
-      <div class="result-card">
-        <div class="result-industry">Real Estate · Budget Scale</div>
-        <div class="result-stat">3×</div>
-        <div class="result-desc">Budget Scaled — USD 12K to 35K/month while maintaining lead quality over 8 months</div>
-      </div>
-      <div class="result-card">
-        <div class="result-industry">Dubai Shopping Festival</div>
-        <div class="result-stat">3.8×</div>
-        <div class="result-desc">ROAS — Full-funnel Meta campaign for fashion retailer during Dubai's peak sale event</div>
-      </div>
-    </div>
-  </div>
-</section>
+   </section>
 
-<!-- EXPERIENCE -->
-<section class="experience" id="experience">
-  <div class="reveal">
-    <p class="section-label">Career Timeline</p>
-    <h2 class="section-title">7 Years of <span>Paid Media</span> Mastery</h2>
-    <div class="exp-timeline">
+   <!-- EXPERIENCE -->
+   <section class="experience" id="experience">
+      <div class="reveal">
+         <p class="section-label">Career Timeline</p>
+         <h2 class="section-title">7 Years of <span>Paid Media</span> Mastery</h2>
+         <div class="exp-timeline">
 
-      <div class="exp-item">
-        <div class="exp-dot"></div>
-        <div class="exp-period">Jan 2022 – Present</div>
-        <div class="exp-title">Senior Performance Marketing Specialist</div>
-        <div class="exp-company">Nexus Digital Media — Dubai-Focused Performance Agency · Remote</div>
-        <div class="exp-verticals">
-          <span class="vertical-tag">Real Estate</span>
-          <span class="vertical-tag">Fashion & Luxury</span>
-          <span class="vertical-tag">F&B & Hospitality</span>
-          <span class="vertical-tag">Dubai Market</span>
-        </div>
-        <ul class="exp-bullets">
-          <li>Scaled Real Estate client budget from <strong>USD 12K to 35K/month</strong> — maintained lead quality over 8 months</li>
-          <li>Delivered <strong>4.5× ROAS</strong> for Dubai fashion brand on Meta — scaled to USD 18K/month over 6 months</li>
-          <li>Arabic-language ad variants for GCC investors outperformed English by <strong>22% CTR</strong></li>
-          <li>Ran Ramadan + Dubai Shopping Festival campaigns — <strong>3.2×–3.8× ROAS</strong> during peak competition</li>
-          <li>Geo-targeted campaigns by Dubai district (DIFC, Marina, Downtown, JBR) — reduced wasted spend by <strong>24%</strong></li>
-        </ul>
+            <div class="exp-item">
+               <div class="exp-dot"></div>
+               <div class="exp-period">Jan 2022 – Present</div>
+               <div class="exp-title">Senior Performance Marketing Specialist</div>
+               <div class="exp-company">Nexus Digital Media — Dubai-Focused Performance Agency · Remote</div>
+               <div class="exp-verticals">
+                  <span class="vertical-tag">Real Estate</span>
+                  <span class="vertical-tag">Fashion & Luxury</span>
+                  <span class="vertical-tag">F&B & Hospitality</span>
+                  <span class="vertical-tag">Dubai Market</span>
+               </div>
+               <ul class="exp-bullets">
+                  <li>Scaled Real Estate client budget from <strong>USD 12K to 35K/month</strong> — maintained lead quality over 8 months</li>
+                  <li>Delivered <strong>4.5× ROAS</strong> for Dubai fashion brand on Meta — scaled to USD 18K/month over 6 months</li>
+                  <li>Arabic-language ad variants for GCC investors outperformed English by <strong>22% CTR</strong></li>
+                  <li>Ran Ramadan + Dubai Shopping Festival campaigns — <strong>3.2×–3.8× ROAS</strong> during peak competition</li>
+                  <li>Geo-targeted campaigns by Dubai district (DIFC, Marina, Downtown, JBR) — reduced wasted spend by <strong>24%</strong></li>
+               </ul>
+            </div>
+
+            <div class="exp-item">
+               <div class="exp-dot"></div>
+               <div class="exp-period">Mar 2019 – Dec 2021</div>
+               <div class="exp-title">Performance Marketing Specialist</div>
+               <div class="exp-company">Orion Growth Digital — GCC & MENA Focus · Remote</div>
+               <div class="exp-verticals">
+                  <span class="vertical-tag">Beauty & Skincare</span>
+                  <span class="vertical-tag">Automotive</span>
+                  <span class="vertical-tag">Education</span>
+                  <span class="vertical-tag">E-Commerce</span>
+               </div>
+               <ul class="exp-bullets">
+                  <li>Achieved <strong>5.3× ROAS</strong> on GCC e-commerce client — highest result across agency portfolio</li>
+                  <li>Reduced CPA by <strong>38%</strong> for Dubai skincare brand via Smart Bidding and product feed restructuring</li>
+                  <li>YouTube automotive campaigns — <strong>38% view-through rate</strong>, CPL reduced 14% vs. prior quarter</li>
+                  <li>Education lead gen — CPL down <strong>31%</strong> via Meta Instant Form qualification logic</li>
+                  <li>Implemented Meta Advantage+ Shopping (ASC) — CPP reduced <strong>19%</strong> vs. manual campaigns</li>
+               </ul>
+            </div>
+
+            <div class="exp-item">
+               <div class="exp-dot"></div>
+               <div class="exp-period">Jun 2017 – Feb 2019</div>
+               <div class="exp-title">Digital Marketing Executive — Paid Media</div>
+               <div class="exp-company">Spark Media Solutions — Boutique Digital Agency · Remote</div>
+               <div class="exp-verticals">
+                  <span class="vertical-tag">B2B Lead Gen</span>
+                  <span class="vertical-tag">Home Décor</span>
+                  <span class="vertical-tag">Analytics & Tracking</span>
+               </div>
+               <ul class="exp-bullets">
+                  <li>SKAG restructuring on Google Search — CPL reduced by <strong>42%</strong> within 90 days</li>
+                  <li>TikTok Ads full-funnel for GCC home décor brand — <strong>2.6× ROAS</strong> within 60 days</li>
+                  <li>Configured GA4 + GTM tracking across <strong>12+ client websites</strong> — full eCommerce and conversion event setup</li>
+                  <li>Built KPI dashboards in Google Sheets — adopted as standard templates across the agency</li>
+               </ul>
+            </div>
+
+         </div>
       </div>
+   </section>
 
-      <div class="exp-item">
-        <div class="exp-dot"></div>
-        <div class="exp-period">Mar 2019 – Dec 2021</div>
-        <div class="exp-title">Performance Marketing Specialist</div>
-        <div class="exp-company">Orion Growth Digital — GCC & MENA Focus · Remote</div>
-        <div class="exp-verticals">
-          <span class="vertical-tag">Beauty & Skincare</span>
-          <span class="vertical-tag">Automotive</span>
-          <span class="vertical-tag">Education</span>
-          <span class="vertical-tag">E-Commerce</span>
-        </div>
-        <ul class="exp-bullets">
-          <li>Achieved <strong>5.3× ROAS</strong> on GCC e-commerce client — highest result across agency portfolio</li>
-          <li>Reduced CPA by <strong>38%</strong> for Dubai skincare brand via Smart Bidding and product feed restructuring</li>
-          <li>YouTube automotive campaigns — <strong>38% view-through rate</strong>, CPL reduced 14% vs. prior quarter</li>
-          <li>Education lead gen — CPL down <strong>31%</strong> via Meta Instant Form qualification logic</li>
-          <li>Implemented Meta Advantage+ Shopping (ASC) — CPP reduced <strong>19%</strong> vs. manual campaigns</li>
-        </ul>
+   <!-- SKILLS -->
+   <section class="skills" id="skills">
+      <div class="reveal">
+         <p class="section-label">Expertise</p>
+         <h2 class="section-title">Skills & <span>Platforms</span></h2>
+         <div class="skills-grid">
+            <div class="skill-group">
+               <div class="skill-group-title">Paid Platforms</div>
+               <div class="skill-pills">
+                  <span class="skill-pill">Google Search Ads</span>
+                  <span class="skill-pill">Google Shopping</span>
+                  <span class="skill-pill">Performance Max</span>
+                  <span class="skill-pill">YouTube Ads</span>
+                  <span class="skill-pill">Meta Ads Manager</span>
+                  <span class="skill-pill">TikTok Ads</span>
+                  <span class="skill-pill">Snapchat Ads</span>
+                  <span class="skill-pill">Display & Remarketing</span>
+               </div>
+            </div>
+            <div class="skill-group">
+               <div class="skill-group-title">Strategy & Optimisation</div>
+               <div class="skill-pills">
+                  <span class="skill-pill">Full-Funnel Strategy</span>
+                  <span class="skill-pill">ROAS Optimisation</span>
+                  <span class="skill-pill">CPA/CPL Reduction</span>
+                  <span class="skill-pill">A/B Testing</span>
+                  <span class="skill-pill">Smart Bidding</span>
+                  <span class="skill-pill">CRO</span>
+                  <span class="skill-pill">Budget Management</span>
+                  <span class="skill-pill">Audience Segmentation</span>
+               </div>
+            </div>
+            <div class="skill-group">
+               <div class="skill-group-title">Analytics & Tracking</div>
+               <div class="skill-pills">
+                  <span class="skill-pill">Google Analytics 4</span>
+                  <span class="skill-pill">Google Tag Manager</span>
+                  <span class="skill-pill">Meta Pixel</span>
+                  <span class="skill-pill">Conversion API</span>
+                  <span class="skill-pill">UTM Tracking</span>
+                  <span class="skill-pill">Attribution Modelling</span>
+                  <span class="skill-pill">KPI Reporting</span>
+               </div>
+            </div>
+            <div class="skill-group">
+               <div class="skill-group-title">Dubai Verticals</div>
+               <div class="skill-pills">
+                  <span class="skill-pill">Real Estate</span>
+                  <span class="skill-pill">Fashion & Luxury</span>
+                  <span class="skill-pill">F&B & Hospitality</span>
+                  <span class="skill-pill">Beauty & Wellness</span>
+                  <span class="skill-pill">Automotive</span>
+                  <span class="skill-pill">Education</span>
+                  <span class="skill-pill">E-Commerce</span>
+                  <span class="skill-pill">B2B Lead Gen</span>
+               </div>
+            </div>
+         </div>
       </div>
+   </section>
 
-      <div class="exp-item">
-        <div class="exp-dot"></div>
-        <div class="exp-period">Jun 2017 – Feb 2019</div>
-        <div class="exp-title">Digital Marketing Executive — Paid Media</div>
-        <div class="exp-company">Spark Media Solutions — Boutique Digital Agency · Remote</div>
-        <div class="exp-verticals">
-          <span class="vertical-tag">B2B Lead Gen</span>
-          <span class="vertical-tag">Home Décor</span>
-          <span class="vertical-tag">Analytics & Tracking</span>
-        </div>
-        <ul class="exp-bullets">
-          <li>SKAG restructuring on Google Search — CPL reduced by <strong>42%</strong> within 90 days</li>
-          <li>TikTok Ads full-funnel for GCC home décor brand — <strong>2.6× ROAS</strong> within 60 days</li>
-          <li>Configured GA4 + GTM tracking across <strong>12+ client websites</strong> — full eCommerce and conversion event setup</li>
-          <li>Built KPI dashboards in Google Sheets — adopted as standard templates across the agency</li>
-        </ul>
+   <!-- CONTACT -->
+   <section class="contact" id="contact">
+      <div class="reveal">
+         <p class="section-label">Get In Touch</p>
+         <h2 class="section-title">Let's Work <span>Together</span></h2>
+         <p class="contact-sub">Based in Pakistan · Available for immediate relocation to Dubai · Zero notice period</p>
+         <div class="contact-grid">
+            <a href="tel:+923303835509" class="contact-item">
+               <span class="contact-icon">📞</span>
+               <span class="contact-label">Phone / WhatsApp</span>
+               <span class="contact-val">+92-330-3835509</span>
+            </a>
+            <a href="mailto:allahdittamohla96@gmail.com" class="contact-item">
+               <span class="contact-icon">✉️</span>
+               <span class="contact-label">Email</span>
+               <span class="contact-val">allahdittamohla96@gmail.com</span>
+            </a>
+            <a href="https://linkedin.com/in/allah-ditta-mohla-a0a9943ab" target="_blank" class="contact-item">
+               <span class="contact-icon">💼</span>
+               <span class="contact-label">LinkedIn</span>
+               <span class="contact-val">View Profile</span>
+            </a>
+         </div>
+         <div class="contact-btns">
+            <a href="mailto:allahdittamohla96@gmail.com" class="btn-primary">Send Me an Email</a>
+            <a href="https://linkedin.com/in/allah-ditta-mohla-a0a9943ab" target="_blank" class="btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.4);">View LinkedIn</a>
+         </div>
       </div>
+   </section>
 
-    </div>
-  </div>
-</section>
+   <footer>
+      <p>© 2026 Allah Ditta Mohla · Performance Marketing Specialist · Dubai Market</p>
+   </footer>
 
-<!-- SKILLS -->
-<section class="skills" id="skills">
-  <div class="reveal">
-    <p class="section-label">Expertise</p>
-    <h2 class="section-title">Skills & <span>Platforms</span></h2>
-    <div class="skills-grid">
-      <div class="skill-group">
-        <div class="skill-group-title">Paid Platforms</div>
-        <div class="skill-pills">
-          <span class="skill-pill">Google Search Ads</span>
-          <span class="skill-pill">Google Shopping</span>
-          <span class="skill-pill">Performance Max</span>
-          <span class="skill-pill">YouTube Ads</span>
-          <span class="skill-pill">Meta Ads Manager</span>
-          <span class="skill-pill">TikTok Ads</span>
-          <span class="skill-pill">Snapchat Ads</span>
-          <span class="skill-pill">Display & Remarketing</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Strategy & Optimisation</div>
-        <div class="skill-pills">
-          <span class="skill-pill">Full-Funnel Strategy</span>
-          <span class="skill-pill">ROAS Optimisation</span>
-          <span class="skill-pill">CPA/CPL Reduction</span>
-          <span class="skill-pill">A/B Testing</span>
-          <span class="skill-pill">Smart Bidding</span>
-          <span class="skill-pill">CRO</span>
-          <span class="skill-pill">Budget Management</span>
-          <span class="skill-pill">Audience Segmentation</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Analytics & Tracking</div>
-        <div class="skill-pills">
-          <span class="skill-pill">Google Analytics 4</span>
-          <span class="skill-pill">Google Tag Manager</span>
-          <span class="skill-pill">Meta Pixel</span>
-          <span class="skill-pill">Conversion API</span>
-          <span class="skill-pill">UTM Tracking</span>
-          <span class="skill-pill">Attribution Modelling</span>
-          <span class="skill-pill">KPI Reporting</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Dubai Verticals</div>
-        <div class="skill-pills">
-          <span class="skill-pill">Real Estate</span>
-          <span class="skill-pill">Fashion & Luxury</span>
-          <span class="skill-pill">F&B & Hospitality</span>
-          <span class="skill-pill">Beauty & Wellness</span>
-          <span class="skill-pill">Automotive</span>
-          <span class="skill-pill">Education</span>
-          <span class="skill-pill">E-Commerce</span>
-          <span class="skill-pill">B2B Lead Gen</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+   <script>
+      // Custom cursor
+      const cursor = document.getElementById('cursor');
+      const ring = document.getElementById('cursor-ring');
+      let mx = 0,
+         my = 0,
+         rx = 0,
+         ry = 0;
+      document.addEventListener('mousemove', e => {
+         mx = e.clientX;
+         my = e.clientY;
+         cursor.style.left = mx + 'px';
+         cursor.style.top = my + 'px';
+      });
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="reveal">
-    <p class="section-label">Get In Touch</p>
-    <h2 class="section-title">Let's Work <span>Together</span></h2>
-    <p class="contact-sub">Based in Pakistan · Available for immediate relocation to Dubai · Zero notice period</p>
-    <div class="contact-grid">
-      <a href="tel:+923303835509" class="contact-item">
-        <span class="contact-icon">📞</span>
-        <span class="contact-label">Phone / WhatsApp</span>
-        <span class="contact-val">+92-330-3835509</span>
-      </a>
-      <a href="mailto:allahdittamohla96@gmail.com" class="contact-item">
-        <span class="contact-icon">✉️</span>
-        <span class="contact-label">Email</span>
-        <span class="contact-val">allahdittamohla96@gmail.com</span>
-      </a>
-      <a href="https://linkedin.com/in/allah-ditta-mohla-a0a9943ab" target="_blank" class="contact-item">
-        <span class="contact-icon">💼</span>
-        <span class="contact-label">LinkedIn</span>
-        <span class="contact-val">View Profile</span>
-      </a>
-    </div>
-    <div class="contact-btns">
-      <a href="mailto:allahdittamohla96@gmail.com" class="btn-primary">Send Me an Email</a>
-      <a href="https://linkedin.com/in/allah-ditta-mohla-a0a9943ab" target="_blank" class="btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.4);">View LinkedIn</a>
-    </div>
-  </div>
-</section>
+      function animRing() {
+         rx += (mx - rx) * .12;
+         ry += (my - ry) * .12;
+         ring.style.left = rx + 'px';
+         ring.style.top = ry + 'px';
+         requestAnimationFrame(animRing);
+      }
+      animRing();
+      document.querySelectorAll('a,button,.result-card,.skill-pill').forEach(el => {
+         el.addEventListener('mouseenter', () => {
+            cursor.style.width = '20px';
+            cursor.style.height = '20px';
+            ring.style.width = '56px';
+            ring.style.height = '56px';
+            ring.style.opacity = '.5';
+         });
+         el.addEventListener('mouseleave', () => {
+            cursor.style.width = '12px';
+            cursor.style.height = '12px';
+            ring.style.width = '36px';
+            ring.style.height = '36px';
+            ring.style.opacity = '1';
+         });
+      });
 
-<footer>
-  <p>© 2026 Allah Ditta Mohla · Performance Marketing Specialist · Dubai Market</p>
-</footer>
+      // Scroll reveal
+      const reveals = document.querySelectorAll('.reveal');
+      const obs = new IntersectionObserver(entries => {
+         entries.forEach(e => {
+            if (e.isIntersecting) {
+               e.target.classList.add('visible');
+               obs.unobserve(e.target);
+            }
+         });
+      }, {
+         threshold: .12
+      });
+      reveals.forEach(r => obs.observe(r));
 
-<script>
-// Custom cursor
-const cursor = document.getElementById('cursor');
-const ring   = document.getElementById('cursor-ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{
-  mx=e.clientX; my=e.clientY;
-  cursor.style.left=mx+'px'; cursor.style.top=my+'px';
-});
-function animRing(){
-  rx+=(mx-rx)*.12; ry+=(my-ry)*.12;
-  ring.style.left=rx+'px'; ring.style.top=ry+'px';
-  requestAnimationFrame(animRing);
-}
-animRing();
-document.querySelectorAll('a,button,.result-card,.skill-pill').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{
-    cursor.style.width='20px'; cursor.style.height='20px';
-    ring.style.width='56px'; ring.style.height='56px'; ring.style.opacity='.5';
-  });
-  el.addEventListener('mouseleave',()=>{
-    cursor.style.width='12px'; cursor.style.height='12px';
-    ring.style.width='36px'; ring.style.height='36px'; ring.style.opacity='1';
-  });
-});
-
-// Scroll reveal
-const reveals = document.querySelectorAll('.reveal');
-const obs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
-},{threshold:.12});
-reveals.forEach(r=>obs.observe(r));
-
-// Active nav link
-const sections = document.querySelectorAll('section[id]');
-const navLinks  = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll',()=>{
-  let current='';
-  sections.forEach(s=>{ if(window.scrollY>=s.offsetTop-80) current=s.id; });
-  navLinks.forEach(a=>{ a.style.color= a.getAttribute('href')==='#'+current ? 'var(--gold)' : ''; });
-});
-</script>
+      // Active nav link
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-links a');
+      window.addEventListener('scroll', () => {
+         let current = '';
+         sections.forEach(s => {
+            if (window.scrollY >= s.offsetTop - 80) current = s.id;
+         });
+         navLinks.forEach(a => {
+            a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+         });
+      });
+   </script>
 </body>
+
 </html>
